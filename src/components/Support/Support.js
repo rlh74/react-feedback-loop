@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-class Understanding extends Component {
+class Support extends Component {
 
   state = {
     value: ''
@@ -18,8 +18,8 @@ class Understanding extends Component {
     event.preventDefault();
     console.log('in handleClick:', this.state);
     if (this.state.value !== '' && this.state.value > 0){
-      this.props.dispatch({type: 'SET_UNDERSTANDING', payload: this.state});
-      this.props.history.push('support');
+      this.props.dispatch({type: 'SET_SUPPORT', payload: this.state});
+      // this.props.history.push('comments');
     } else {
       alert ('please enter a positive number');
     }
@@ -29,9 +29,9 @@ class Understanding extends Component {
     return (
       <div>
         <form>
-        <h1>How are you understanding the content?</h1>
-        <label htmlFor="understanding">Understanding?</label>
-        <input type="number" name="understanding" onChange={this.handleChangeFor}/>
+        <h1>How well are you being supported?</h1>
+        <label htmlFor="support">Support?</label>
+        <input type="number" name="support" onChange={this.handleChangeFor}/>
         <button onClick={this.handleClick}>Next</button>
         </form>
       </div>
@@ -42,4 +42,4 @@ class Understanding extends Component {
 const putReduxStateOnProps = (reduxState) => ({
   reduxState
 })
-export default connect(putReduxStateOnProps)(Understanding);
+export default connect(putReduxStateOnProps)(Support);
