@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import './App.css';
 import Home from '../Home/Home';
+import axios from 'axios';
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import {connect} from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route} from 'react-router-dom';
 
 
 class App extends Component {
 
   componentDidMount(){
-    // this.getFeedback();
+    this.getFeedback();
   }
   // for admin section
-  // getFeedback = () => {
-  //   axios.get('feedback').then((response)=>{
-  //     console.log('back from GET:', response.data);
-  //   }).catch((err)=>{
-  //     alert('error getting pizza');
-  //     console.log(err);
-  //   })
-  // } 
+  getFeedback = () => {
+    axios.get('/feedback').then((response)=>{
+      console.log('back from GET:', response.data);
+    }).catch((err)=>{
+      alert('error getting pizza');
+      console.log(err);
+    })
+  } 
+
+  postFeedback = (data) => {
+    console.log('ready to post:', data);
+  }
   render() {
     return (
       <div className="App">

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import logger from 'redux-logger';
+import axios from 'axios';
 import {Provider} from 'react-redux';
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import './index.css';
@@ -12,6 +13,24 @@ const feedbackData = {
   support: '',
   comments: ''
 }
+
+const postFeedback = (data) => {
+  // console.log('ready to axios:', data);
+  axios.post('/feedback', data).then(response=>{
+    alert('feedback posted');
+    data = {
+      feeling: '',
+      understanding: '',
+      support: '',
+      comments: ''
+    }
+    console.log('feedback data should be cleared:', data);
+  }).catch((error)=>{
+    alert('error posting feedback');
+    console.log('error with post:', error)
+  })
+}
+
 
 const feedbackReducer = (state = feedbackData, action) =>{
   if (action.type === 'SET_FEELING'){
@@ -26,7 +45,10 @@ const feedbackReducer = (state = feedbackData, action) =>{
   } else if (action.type === 'SET_COMMENTS'){
     state.comments = action.payload.value;
     return state;
-  }
+  } else if (action.type === 'SET_FEEDBACK'){
+    postFeedback(state);
+    return state;
+  } 
     return state;
   
 }
@@ -34,7 +56,7 @@ const feedbackReducer = (state = feedbackData, action) =>{
 // create the redux store 
 const storeInstance = createStore(
   combineReducers({
-    feedbackReducer
+    feedbackReducer,
   }),
   applyMiddleware(logger)
 )

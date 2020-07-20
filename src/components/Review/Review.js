@@ -6,6 +6,7 @@ class Review extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
+    this.props.dispatch({type: 'SET_FEEDBACK', payload: null});
     this.props.history.push('/');
   }
 
