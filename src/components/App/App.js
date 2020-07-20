@@ -33,6 +33,7 @@ class App extends Component {
         <Router>
         <Route exact path="/" component={Home} />
         <Route path="/feeling" component={Feeling} />
+        <Route path="/understanding" component={Understanding} />
         {/* <Home/> */}
         </Router>
       </div>

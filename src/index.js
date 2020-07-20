@@ -18,7 +18,7 @@ const feedbackReducer = (state = feedbackData, action) =>{
     state.feeling = action.payload.value;
     return state;
   } else if (action.type === 'SET_UNDERSTANDING'){
-    state.feeling = action.payload.value;
+    state.understanding = action.payload.value;
     return state;
   }
     return state;

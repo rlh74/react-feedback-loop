@@ -19,6 +19,7 @@ class Feeling extends Component {
     console.log('in handleClick:', this.state);
     if (this.state.value !== '' && this.state.value > 0){
       this.props.dispatch({type: 'SET_FEELING', payload: this.state});
+      this.props.history.push('understanding');
     } else {
       alert ('please enter a positive number');
     }
