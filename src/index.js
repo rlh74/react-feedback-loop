@@ -23,6 +23,9 @@ const feedbackReducer = (state = feedbackData, action) =>{
   } else if (action.type === 'SET_SUPPORT'){
     state.support = action.payload.value;
     return state;
+  } else if (action.type === 'SET_COMMENTS'){
+    state.comments = action.payload.value;
+    return state;
   }
     return state;
   
