@@ -5,7 +5,7 @@
 
 _Duration: 11 Hours_
 
-This is a feedback form that uses required inputs to send response data to a database. One of the primary challenges of this was using multiple components so each feedback question was on its own page, but collect all inputs at the end to display before being submitted to a database. I utilized storing the feedback data in an object on the index page that received data to its properties via dispatches on the client..
+This is a feedback form that uses required inputs to send response data to a database. One of the primary challenges of this was using multiple components so each feedback question was on its own page, but collect all inputs at the end to display before being submitted to a database. I utilized reducers to store the feedback data in an object on the index page that received data to its properties via dispatches on the client..
 
 ## Screen Shots
 ![Interface](images/screenshot-one.png)
